@@ -253,7 +253,7 @@ in this step, We read 3 data frames from test and training directory and merge t
 - I used piping and dplyr and tidyr package to tidify data.
   - gather function is used to melt data set and make new columns named mean and std repectively.
   - select function is used to drop unneccesary variable
-  - mutate used to change variable name to be more descriptive and readable.
+  - mutate used to change variable name to be more descriptive and readable by using sub() with regex.
 
 
 ```r
