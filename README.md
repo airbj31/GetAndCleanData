@@ -16,9 +16,9 @@ the description is written in [codebook.md](https://github.com/airbj31/GetAndCle
 
 - **[readme.md](https://github.com/airbj31/GetAndCleanData/blob/master/README.md)** - this file
 
-- **[run_analysis.R](https://github.com/airbj31/GetAndCleanData/blob/master/analysis.R)** : assignment R code used to get and clean UCI samsung galaxy SII wearable device data.
+- **[run_analysis.R](https://github.com/airbj31/GetAndCleanData/blob/master/run_analysis.R)** : assignment R code used to get and clean UCI samsung galaxy SII wearable device data.
 
-- **[UCISamsungGalaxySIISummary.txt](https://github.com/airbj31/GetAndCleanData/blob/master/UCISamsungGalaxySIISummary.txt)** : summary tidy dataset generated from [run_analysis.R](https://github.com/airbj31/GetAndCleanData/blob/master/analysis.R)
+- **[UCISamsungGalaxySIISummary.txt](https://github.com/airbj31/GetAndCleanData/blob/master/UCISamsungGalaxySIISummary.txt)** : summary tidy dataset generated from [run_analysis.R](https://github.com/airbj31/GetAndCleanData/blob/master/run_analysis.R)
 
 - **[codebook.md](https://github.com/airbj31/GetAndCleanData/blob/master/codebook.md)** : [UCISamsungGalaxySIISummary.txt](https://github.com/airbj31/GetAndCleanData/blob/master/UCISamsungGalaxySIISummary.txt) and detailed workflow are described in this file.
 
@@ -28,7 +28,7 @@ the description is written in [codebook.md](https://github.com/airbj31/GetAndCle
 
     if not, install them by install.packages("dplyr") and install.packages("tidyr")
 
-1. download the [run_analysis.R](https://github.com/airbj31/GetAndCleanData/blob/master/analysis.R) into your working directory.
+1. download the [run_analysis.R](https://github.com/airbj31/GetAndCleanData/blob/master/run_analysis.R) into your working directory.
 
 2. source("run_analysis.R") to download andy tidify data.
 
