@@ -32,9 +32,3 @@ the description is written in [codebook.md](https://github.com/airbj31/GetAndCle
    
    - **tidyGalaxy** : first data set.
    - **tidyGalaxySummary** : second, summarized dataset.this is the output of the run_analysis.R It would be written in *UCISamsungGalaxySIISummary.txt* in working directory. 
-   
- 
-   beside of the output, the script generate two function which is used in the analysis.
-   
-   - **merge3DF(file1,file2,file3)** : used to merge 3 dataset.
-   - **num2act(x)** from the input of digit variable x, it redirect vector value which is human readable activity.
