@@ -146,7 +146,7 @@ the summarized data set was written in **[UCISamsungGalaxySIISummary.txt](https:
       
 ## Finding of inconstancy between feature_info.txt and real data. 
 
-**BodyBody** is duplicated in features.txt from line 516-554. the information BodyBodyblah blah variables are not found raw feature_info.txt in UCI HAR Dataset folder. so it seems like a proccessing error. and I fix it by applying "VarColname<-sub("BodyBody","Body",VarColname)". in section 2-A. 
+**Body** is duplicated in features.txt from line 516-554. the information BodyBodyblah blah variables are not found raw feature_info.txt in UCI HAR Dataset folder. so it seems like a proccessing error. and I fix it by applying "VarColname<-sub("BodyBody","Body",VarColname)". in section 2-A. 
 
 ## Make strategy to get and clean data.
 
