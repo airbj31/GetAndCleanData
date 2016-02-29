@@ -146,6 +146,10 @@ the summarized data set was written in **[UCISamsungGalaxySIISummary.txt](https:
   
       number codes ( train/Y_train.txt :7352 x 1; test/Y_test.txt : 2947 x 1) for activity label.
       the number codes are converted into human readable one later part of the data processing.
+      
+## Finding of inconstancy between feature_info.txt and real data. 
+
+**BodyBody** is duplicated in features.txt from line 516-554. the information BodyBodyblah blah variables are not found raw feature_info.txt in UCI HAR Dataset folder. so it seems like a proccessing error. and I fix it by applying "VarColname<-sub("BodyBody","Body",VarColname)". in section 2-A. 
 
 ## Make strategy to get and clean data.
 
@@ -240,6 +244,7 @@ in this step, We read 3 data frames from test and training directory and merge t
   ## 2-A. read column information.
   filePATH<-paste(dir,"features.txt",sep="/")
   VarColname<-as.vector(read.table(filePATH,header=FALSE)[2]$V2)
+  VarColname<-sub("BodyBody","Body",VarColname)
 
   ## 2-B. declare colname of merged.df.  
   colnames(merged.df)<-c("sampleid","activity",VarColname)

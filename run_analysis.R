@@ -72,6 +72,7 @@
   ## 2-A. read column info
   filePATH<-paste(dir,"features.txt",sep="/")
   VarColname<-as.vector(read.table(filePATH,header=FALSE)[2]$V2)
+  VarColname<-sub("BodyBody","Body",VarColname)
 
   ## 2-B. delcare colname of merged.df
   colnames(merged.df)<-c("sampleid","activity",VarColname)
