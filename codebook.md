@@ -47,8 +47,8 @@ the summarized data set was written in **[UCISamsungGalaxySIISummary.txt](https:
     The definition of each portion of value names are followings:
 
     - prefix
-        - **t**  : time domain signals which were captured at a constant rate of 50 Hz.
-        - **f**  : Fast Fourier Transform (FFT) was applied.
+        - **time**  : time domain signals which were captured at a constant rate of 50 Hz.
+        - **freq**  : Fast Fourier Transform (FFT) was applied.
 
     - signal - dimensional signals.
         - **X** : Measurement of X signal
@@ -90,6 +90,38 @@ the summarized data set was written in **[UCISamsungGalaxySIISummary.txt](https:
 
     measured activity by the smartphone.
     the activity containing **laying**, **sitting**, **standing**, **walking_downstairs** and **walking_upstairs**.
+
+- **measurement** (33 values)
+
+    the values of "measurement" is a measurement method named as **[prefix][measurement][signal]**
+  
+    It is somewhat confused since the value itself has different information. 
+    but I considered the value is just one measurement which indicated only one value what original investigators measured. 
+  
+    The definition of each portion of value names are followings:
+
+    - prefix
+        - **time**  : time domain signals which were captured at a constant rate of 50 Hz.
+        - **freq**  : Fast Fourier Transform (FFT) was applied.
+
+    - signal - dimensional signals.
+        - **X** : Measurement of X signal
+        - **Y** : Measurement of Y signal
+        - **Z** : Measurement of Z signal
+        - **NA(nothing)** : indicated summarized measurement.
+    
+    - measurement
+        - **BodyAcc** : body acceleration for each of 3 dimensional signals (X/Y/Z).
+        - **GravityAcc** : gravity acceleration for each signals (X/Y/Z).
+        - **BodyAccJerk** : Jerk signal from body linear acceleration for X/Y/Z.
+        - **BodyGyro** : body angular velocity for each signals (X/Y/Z)
+        - **BodyGyroJerk** : Jerk signals from body angular velocity for X/Y/Z.
+        - **BodyAccMag** : Euclidean normalized tree-dimensional signal for 3 BodyAcc measurement.
+        - **GravityAccMag** : Euclidean normalized tree-dimensional signal for 3 GravityAcc measurement.
+        - **BodyAccJerkMag** : Euclidean normalized tree-dimensional signal for 3 BodyAccJerk measurement
+        - **BodyGyroMag** : Euclidean normalized tree-dimensional signal for 3 BodyGyro measurement
+        - **BodyGyroJerkMag** : Euclidean normalized tree-dimensional signal for 3 BodyGyroJerk measurement.
+
 
 - **mean** : mean of extracted mean() value based on sampleid and activity column 
   
@@ -253,15 +285,15 @@ in this step, We read 3 data frames from test and training directory and merge t
 - I used piping and dplyr and tidyr package to tidify data.
   - gather function is used to melt data set and make new columns named mean and std repectively.
   - select function is used to drop unneccesary variable
-  - mutate used to change variable name to be more descriptive and readable by using sub() with regex.
+  - mutate used to change variable name to be more descriptive and readable.
 
 
 ```r
   ## Using tidyr and dplyr, clean the data.
-  tidyGalaxy  <- new.df  %>% gather(measurement, mean ,contains("mean()")) %>% 
+   tidyGalaxy <- new.df  %>% gather(measurement, mean ,contains("mean()")) %>% 
                       gather(measurement2, std ,contains("std()"))  %>% 
                       select(-measurement2) %>%
-                      mutate(measurement=sub("-mean\\(\\)-*","",measurement))
+                      mutate(measurement=sub("-mean\\(\\)-*","",measurement), measurement=sub("^t","time",measurement),measurement=sub("^f","freq",measurement))
 ```
 
 ## Step 5. make summary data set.
@@ -270,10 +302,11 @@ in this step, We read 3 data frames from test and training directory and merge t
 
 
 ```r
-  tidyGalaxySummary <- tidyGalaxy %>% group_by(sampleid,activity) %>% summarize(mean=mean(mean),std=mean(std))
+  tidyGalaxySummary <- tidyGalaxy %>% group_by(sampleid,measure,activity) %>% summarize(mean=mean(mean),std=mean(std))
+  
   print(tidyGalaxySummary) 
   
   ## save the file 
    write.table(tidyGalaxySummary,file = "./data/UCISamsungGalaxySIISummary.txt",row.names = FALSE)
-#  write.table(tst,file = "./data/UCISamsungGalaxySII.txt")
+  # write.table(tst,file = "./data/UCISamsungGalaxySII.txt")
 ```

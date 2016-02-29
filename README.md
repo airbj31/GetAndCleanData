@@ -22,11 +22,7 @@ the description is written in [codebook.md](https://github.com/airbj31/GetAndCle
 
 - **[codebook.md](https://github.com/airbj31/GetAndCleanData/blob/master/codebook.md)** : [UCISamsungGalaxySIISummary.txt](https://github.com/airbj31/GetAndCleanData/blob/master/UCISamsungGalaxySIISummary.txt) and detailed workflow are described in this file.
 
-# Running the code.
-
-0. before running the code, make sure if tidyr and dplyr are installed.
-   
-   if not, run install.packages("tidyr") and install.packages("dplyr")
+# Running of the code.
 
 1. download the [run_analysis.R](https://github.com/airbj31/GetAndCleanData/blob/master/analysis.R) into your working directory.
 

@@ -109,11 +109,12 @@
    tidyGalaxy <- new.df  %>% gather(measurement, mean ,contains("mean()")) %>% 
                       gather(measurement2, std ,contains("std()"))  %>% 
                       select(-measurement2) %>%
-                      mutate(measurement=sub("-mean\\(\\)-*","",measurement))
+                      mutate(measurement=sub("-mean\\(\\)-*","",measurement), measurement=sub("^t","time",measurement),measurement=sub("^f","fft",measurement))
+
 
 ## Step 5. make summary data set.
    
-   tidyGalaxySummary <- tidyGalaxy %>% group_by(sampleid,activity) %>% summarize(mean=mean(mean),std=mean(std))
+   tidyGalaxySummary <- tidyGalaxy %>% group_by(sampleid,measurement,activity) %>% summarize(mean=mean(mean),std=mean(std))
 
    ## clean Environment
    rm(new.df,dfile,dfile2,dir,ExtColName,filePATH,fileURL,VarColname,activity,Merge3DF,num2act)
