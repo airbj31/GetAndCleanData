@@ -26,11 +26,15 @@
     ### make dest file path and name
     dfile2<-paste(dir,dfile,sep="/")
   
-    ### download file
-    download.file(fileURL,destfile=dfile2)
-
-    ### unzip downloaded file into dir folder.
-    unzip(dfile2,exdir=dir)
+    ### download file unzip it into dir folder (testing purpose. evading download file again to save time)
+    # if(!file.exists(dfile2) | !file.info(dfile2)$size == 62556944)
+    # {download.file(fileURL,destfile=dfile2);unzip(dfile2,exdir=dir)}
+    
+    ## download file
+      download.file(fileURL,destfile=dfile2)
+    
+    ## unzip downloaded file into dir folder.
+      unzip(dfile2,exdir=dir)
 
     ### set base data directory as dir variable for further usage. 
     dir<-paste(dir,"UCI HAR Dataset",sep="/")
@@ -109,12 +113,10 @@
 
 ## Step 5. make summary data set.
    
-   ## make summarized dataset.
-   
-   tidyGalaxySummary <- tidyGalaxy %>% group_by(sampleid,measurement,activity) %>% summarize(mean=mean(mean),std=mean(std))
+   tidyGalaxySummary <- tidyGalaxy %>% group_by(sampleid,activity) %>% summarize(mean=mean(mean),std=mean(std))
 
    ## clean Environment
-   rm(new.df,activity,dfile,dfile2,dir,ExtColName,filePATH,fileURL,VarColname)
+   rm(new.df,dfile,dfile2,dir,ExtColName,filePATH,fileURL,VarColname,activity,Merge3DF,num2act)
    
    ##   Save the file 
    write.table(tidyGalaxySummary,file = "./UCISamsungGalaxySIISummary.txt",row.names = FALSE)

@@ -24,6 +24,10 @@ the description is written in [codebook.md](https://github.com/airbj31/GetAndCle
 
 # Running of the code.
 
+0. Check if you installed **dplyr** and **tidyr** package. 
+
+    if not, install them by install.packages("dplyr") and install.packages("tidyr")
+
 1. download the [run_analysis.R](https://github.com/airbj31/GetAndCleanData/blob/master/analysis.R) into your working directory.
 
 2. source("run_analysis.R") to download andy tidify data.
