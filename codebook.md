@@ -1,6 +1,6 @@
 # codebook for Final Program Assignment of Getting and Cleaning DATA course on Coursera.org.
 Byungju Kim  
-2016년 2월 28일  
+Feb 28, 2016.  
 
 # Introduction
 
