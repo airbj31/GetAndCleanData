@@ -14,7 +14,7 @@ the description is written in [codebook.md](https://github.com/airbj31/GetAndCle
 
 # Description of submitted data into github
 
-- **[readme.md](https://github.com/airbj31/GetAndCleanData/blob/master/readme.md)** - this file
+- **[readme.md](https://github.com/airbj31/GetAndCleanData/blob/master/README.md)** - this file
 
 - **[run_analysis.R](https://github.com/airbj31/GetAndCleanData/blob/master/analysis.R)** : assignment R code used to get and clean UCI samsung galaxy SII wearable device data.
 
