@@ -20,7 +20,7 @@ the description is written in [codebook.md](https://github.com/airbj31/GetAndCle
 
 - **[UCISamsungGalaxySIISummary.txt](https://github.com/airbj31/GetAndCleanData/blob/master/UCISamsungGalaxySIISummary.txt)** : summary tidy dataset generated from [run_analysis.R](https://github.com/airbj31/GetAndCleanData/blob/master/analysis.R)
 
-- **[codebook.md](https://github.com/airbj31/GetAndCleanData/blob/master/codebook.md)** - description about [UCISamsungGalaxySIISummary.txt](https://github.com/airbj31/GetAndCleanData/blob/master/UCISamsungGalaxySIISummary.txt) and detailed workflows are described in this file.
+- **[codebook.md](https://github.com/airbj31/GetAndCleanData/blob/master/codebook.md)** : [UCISamsungGalaxySIISummary.txt](https://github.com/airbj31/GetAndCleanData/blob/master/UCISamsungGalaxySIISummary.txt) and detailed workflow are described in this file.
 
 # Running of the code.
 
