@@ -26,7 +26,7 @@
     ### make dest file path and name
     dfile2<-paste(dir,dfile,sep="/")
   
-    ### download file unzip it into dir folder (testing purpose. evading download file again to save time)
+    ### download file and unzip it into dir folder (testing purpose. it evades download file again for saving time if I already download it)
     # if(!file.exists(dfile2) | !file.info(dfile2)$size == 62556944)
     # {download.file(fileURL,destfile=dfile2);unzip(dfile2,exdir=dir)}
     
