@@ -48,7 +48,7 @@ the summarized data set was written in **[UCISamsungGalaxySIISummary.txt](https:
 
     - prefix
         - **time**  : time domain signals which were captured at a constant rate of 50 Hz.
-        - **freq**  : Fast Fourier Transform (FFT) was applied.
+        - **fft**  : Fast Fourier Transform (FFT) was applied.
 
     - signal - dimensional signals.
         - **X** : Measurement of X signal
@@ -102,7 +102,7 @@ the summarized data set was written in **[UCISamsungGalaxySIISummary.txt](https:
 
     - prefix
         - **time**  : time domain signals which were captured at a constant rate of 50 Hz.
-        - **freq**  : Fast Fourier Transform (FFT) was applied.
+        - **fft**  : Fast Fourier Transform (FFT) was applied.
 
     - signal - dimensional signals.
         - **X** : Measurement of X signal
@@ -290,10 +290,10 @@ in this step, We read 3 data frames from test and training directory and merge t
 
 ```r
   ## Using tidyr and dplyr, clean the data.
-   tidyGalaxy <- new.df  %>% gather(measurement, mean ,contains("mean()")) %>% 
+ tidyGalaxy <- new.df  %>% gather(measurement, mean ,contains("mean()")) %>% 
                       gather(measurement2, std ,contains("std()"))  %>% 
                       select(-measurement2) %>%
-                      mutate(measurement=sub("-mean\\(\\)-*","",measurement), measurement=sub("^t","time",measurement),measurement=sub("^f","freq",measurement))
+                      mutate(measurement=sub("-mean\\(\\)-*","",measurement), measurement=sub("^t","time",measurement),measurement=sub("^f","fft",measurement))
 ```
 
 ## Step 5. make summary data set.
@@ -302,7 +302,7 @@ in this step, We read 3 data frames from test and training directory and merge t
 
 
 ```r
-  tidyGalaxySummary <- tidyGalaxy %>% group_by(sampleid,measure,activity) %>% summarize(mean=mean(mean),std=mean(std))
+  tidyGalaxySummary <- tidyGalaxy %>% group_by(sampleid,measurement,activity) %>% summarize(mean=mean(mean),std=mean(std))
   
   print(tidyGalaxySummary) 
   
