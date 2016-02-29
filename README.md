@@ -22,7 +22,7 @@ the description is written in [codebook.md](https://github.com/airbj31/GetAndCle
 
 - **[codebook.md](https://github.com/airbj31/GetAndCleanData/blob/master/codebook.md)** : [UCISamsungGalaxySIISummary.txt](https://github.com/airbj31/GetAndCleanData/blob/master/UCISamsungGalaxySIISummary.txt) and detailed workflow are described in this file.
 
-# Running of the code.
+# Running the code.
 
 0. before running the code, make sure if tidyr and dplyr are installed.
    
