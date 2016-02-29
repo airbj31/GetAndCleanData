@@ -86,11 +86,6 @@ the summarized data set was written in **[UCISamsungGalaxySIISummary.txt](https:
     
     sampleid is unique identifier assigend to each people who participated the study.
 
-- **activity** 
-
-    measured activity by the smartphone.
-    the activity containing **laying**, **sitting**, **standing**, **walking_downstairs** and **walking_upstairs**.
-
 - **measurement** (33 values)
 
     the values of "measurement" is a measurement method named as **[prefix][measurement][signal]**
@@ -122,14 +117,15 @@ the summarized data set was written in **[UCISamsungGalaxySIISummary.txt](https:
         - **BodyGyroMag** : Euclidean normalized tree-dimensional signal for 3 BodyGyro measurement
         - **BodyGyroJerkMag** : Euclidean normalized tree-dimensional signal for 3 BodyGyroJerk measurement.
 
+    - **activity** 
 
-- **mean** : mean of extracted mean() value based on sampleid and activity column 
+        measured activity by the smartphone.
+        the activity containing **laying**, **sitting**, **standing**, **walking_downstairs** and **walking_upstairs**.
+
+
+    - **mean** : mean of extracted mean() value based on sampleid and activity column 
   
-    note that the mean is calculated by regardless of measurement from tidyGalaxy data set
-    
-- **std** :  mean of extracted standard deviation based on sampleid and activity column 
-
-    note that the mean of std is calculated by regardless of measurement from tidyGalaxy data set
+    - **std** :  mean of extracted standard deviation based on sampleid and activity column 
 
 # Workflows and detailed code description
 
